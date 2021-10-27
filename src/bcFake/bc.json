@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Bolo de Chocolate",
+    "description": "Massa de chocolate com recheio de Brigadeiro",
+    "value": "R$ 40,00  kg",
+    "img": "https://media.istockphoto.com/photos/chocolate-cake-with-chocolate-fudge-drizzled-icing-and-chocolate-picture-id478348860?b=1&k=20&m=478348860&s=170667a&w=0&h=ClleMEXaQNUh01_-3-Q87ZhkjLZ1E6CKmcRJ2oxtRn8="
+  },
+  {
+    "title": "Bolo de Ninho",
+    "description": "Massa de chocolate com recheio de Ninho",
+    "value": "R$ 45,00  kg",
+    "img": "https://media.istockphoto.com/photos/passion-fruit-birthday-cake-picture-id1247903563?b=1&k=20&m=1247903563&s=170667a&w=0&h=3A3w6QA9y0evPLTSzHSAvCgC2fTr-fO0l7wtvYxNi4Y="
+  },
+  {
+    "title": "Bolo Prestigio",
+    "description": "Massa de chocolate com recheio de Prestigio",
+    "value": "R$ 55,00  kg",
+    "img": "https://images.unsplash.com/photo-1602351447937-745cb720612f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FrZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "title": "Bolo Danete",
+    "description": "Massa de chocolate com recheio de Danete",
+    "value": "R$ 50,00  kg",
+    "img": "https://images.unsplash.com/photo-1562440499-64c9a111f713?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y2FrZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+  }
+]

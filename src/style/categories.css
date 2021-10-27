@@ -1,0 +1,29 @@
+#section-categories {
+  color: black;
+}
+.container {
+  position: relative;
+  color: white;
+}
+.nav {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.nav-categorias li {
+  float: none;
+  border-bottom: 5px solid #fff;
+  white-space: nowrap;
+}
+
+.nav-categorias {
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+}
+.nav-categorias li {
+  font-size: 1.8rem;
+  margin: 1rem 2rem;
+  position: relative;
+  display: block;
+}
