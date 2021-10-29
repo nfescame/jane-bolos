@@ -1,9 +1,9 @@
-import Home from "./components/Home.page";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Router from "./router/Router";
 function App() {
   return (
     <div>
-      <Home />
+      <Router />
     </div>
   );
 }

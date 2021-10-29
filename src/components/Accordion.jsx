@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import "../style/accordeon.css";
 import Cards from "./Card";
 import products from "../bcFake/bc.json";
 
 export default function Accordion(props) {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <section>
@@ -10,17 +12,16 @@ export default function Accordion(props) {
           <div className='accordion-item'>
             <h2 className='accordion-header' id='panelsStayOpen-headingOne'>
               <button
-                className='accordion-button'
+                className='accordion-button btn-accordeon'
                 type='button'
-                data-bs-toggle='collapse'
-                data-bs-target='#panelsStayOpen-collapseOne'
-                aria-expanded='true'
-                aria-controls='panelsStayOpen-collapseOne'
+                onClick={() => {
+                  setIsOpen(isOpen ? false : true);
+                }}
               >
-                {props.name}
+                <p>{props.name}</p>
               </button>
             </h2>
-            <Cards products={products} />
+            {isOpen ? <Cards products={products} /> : null}
           </div>
         </div>
       </section>

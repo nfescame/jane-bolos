@@ -1,41 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+
+import Modal from "./Modal.jsx";
 import "../style/navbar.css";
 
 export default function NavBar() {
+  const [isOpen, SetIsOpen] = useState(false);
   return (
     <>
-      <nav class='navbar navbar-expand-lg navbar-dark bg-color-gradiente'>
-        <div class='container-fluid'>
-          <a class='navbar-brand' href='#'>
-            Jane Doces
-          </a>
+      <nav className='navbar navbar-expand-lg navbar-dark bg-color-gradiente'>
+        <div className='container-fluid'>
+          <h4>Jane Doces</h4>
+
           <button
-            class='navbar-toggler'
+            className='navbar-toggler'
             type='button'
-            data-bs-toggle='collapse'
-            data-bs-target='#navbarNavAltMarkup'
-            aria-controls='navbarNavAltMarkup'
-            aria-expanded='false'
-            aria-label='Toggle navigation'
+            onClick={() => {
+              SetIsOpen(isOpen ? false : true);
+            }}
           >
-            <span class='navbar-toggler-icon'></span>
+            <span className='navbar-toggler-icon'></span>
           </button>
-          <div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
-            <div class='navbar-nav'>
-              <a class='nav-link active' aria-current='page' href='#'>
-                Home
-              </a>
-              <a class='nav-link' href='#'>
-                Features
-              </a>
-              <a class='nav-link' href='#'>
-                Pricing
-              </a>
-              <a class='nav-link disabled'>Disabled</a>
+          {isOpen ? (
+            <div className=' navbar-collapse' id='navbarNavAltMarkup'>
+              <div className='navbar-nav'>
+                <p>Contatos</p>
+                <p>Album</p>
+              </div>
             </div>
-          </div>
+          ) : null}
         </div>
       </nav>
+      <Modal />
     </>
   );
 }
