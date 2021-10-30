@@ -1,0 +1,67 @@
+.container-login {
+  width: 100%;
+  height: 100vh;
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: antiquewhite;
+}
+
+.container-email {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.container-password {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.container-btn {
+  display: flex;
+  justify-content: center;
+}
+.container-btn button {
+  border-radius: 10px;
+  width: 8rem;
+  height: 3rem;
+  background-color: #eb92be;
+  color: antiquewhite;
+  margin-top: 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 1s;
+}
+.container-btn button:hover {
+  background-color: #bd377a;
+}
+
+.container-texto {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  height: 3rem;
+  margin-top: 2rem;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.container-texto h5 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #eb92be;
+}
+
+@media screen {
+  .container-texto h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #eb92be;
+  }
+  .container-texto {
+    width: 80%;
+  }
+}

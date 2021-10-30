@@ -2,3 +2,29 @@
   background-color: #eb92be;
   color: antiquewhite;
 }
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+.link {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.5s;
+}
+
+.link:hover {
+  border-radius: 10px;
+  background-color: #bd377a;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: white;
+}

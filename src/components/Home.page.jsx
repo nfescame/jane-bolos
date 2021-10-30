@@ -1,19 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 import Header from "./Header";
 import Categorie from "./Categories";
 import Accordion from "./Accordion";
-import NavBar from "./NavBar";
-
-const categorias = ["Bolos", "Doces", "Decorações"];
+// import products from "../data/bc.json";
+import api from "../apis/api";
 
 export default function Home() {
+  const [data, setData] = useState([]);
+  const categories = unique(data.map((i) => i.category));
+  // const list = data.map((p) => p.product);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const result = await api.get("products");
+        setData(result.data.result);
+      } catch (err) {}
+    })();
+
+    return () => {};
+  }, []);
+
+  function unique(arr) {
+    return arr.filter((elem, pos, arr) => {
+      return arr.indexOf(elem) === pos;
+    });
+  }
+
   return (
     <>
-      <NavBar />
       <Header />
-      <Categorie categorias={categorias} />
-      {categorias.map((categoria, index) => {
-        return <Accordion key={`${index}&${categoria}`} name={categoria} />;
+      <Categorie categorias={categories} />
+      {categories.map((category, index) => {
+        return <Accordion key={index} categories={category} data={data} />;
       })}
     </>
   );

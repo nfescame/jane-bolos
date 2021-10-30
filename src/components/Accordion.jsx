@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "../style/accordeon.css";
 import Cards from "./Card";
-import products from "../bcFake/bc.json";
 
 export default function Accordion(props) {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <section>
@@ -18,10 +18,17 @@ export default function Accordion(props) {
                   setIsOpen(isOpen ? false : true);
                 }}
               >
-                <p>{props.name}</p>
+                <p>{props.categories}</p>
               </button>
             </h2>
-            {isOpen ? <Cards products={products} /> : null}
+
+            {isOpen
+              ? props.data.map((p, i) => {
+                  if (p.category === props.categories) {
+                    return <Cards key={i} list={p.product} />;
+                  }
+                })
+              : null}
           </div>
         </div>
       </section>

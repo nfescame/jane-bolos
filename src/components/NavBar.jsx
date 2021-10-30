@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Modal from "./Modal.jsx";
 import "../style/navbar.css";
@@ -7,7 +8,7 @@ export default function NavBar() {
   const [isOpen, SetIsOpen] = useState(false);
   return (
     <>
-      <nav className='navbar navbar-expand-lg navbar-dark bg-color-gradiente'>
+      <nav className='navbar  navbar-dark bg-color-gradiente'>
         <div className='container-fluid'>
           <h4>Jane Doces</h4>
 
@@ -22,9 +23,16 @@ export default function NavBar() {
           </button>
           {isOpen ? (
             <div className=' navbar-collapse' id='navbarNavAltMarkup'>
-              <div className='navbar-nav'>
-                <p>Contatos</p>
-                <p>Album</p>
+              <div className='navbar-nav container-link'>
+                <Link className='link' to='#'>
+                  Contatos
+                </Link>
+                <Link className='link' to='#'>
+                  Album
+                </Link>
+                <Link className='link' to='/auth/login'>
+                  Login ADM
+                </Link>
               </div>
             </div>
           ) : null}
