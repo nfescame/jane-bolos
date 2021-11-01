@@ -27,3 +27,9 @@
   position: relative;
   display: block;
 }
+
+.nav-categorias li a {
+  text-decoration: none;
+  list-style: none;
+  color: #bd377a;
+}

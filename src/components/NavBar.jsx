@@ -8,9 +8,11 @@ export default function NavBar() {
   const [isOpen, SetIsOpen] = useState(false);
   return (
     <>
-      <nav className='navbar  navbar-dark bg-color-gradiente'>
+      <nav className='navbar navbar-dark bg-color-gradiente'>
         <div className='container-fluid'>
-          <h4>Jane Doces</h4>
+          <Link className='icon-nav ' to='/'>
+            <i className='fas fa-birthday-cake'></i>
+          </Link>
 
           <button
             className='navbar-toggler'

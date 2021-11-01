@@ -2,12 +2,29 @@
   background-color: #eb92be;
   color: antiquewhite;
 }
-
+.icon-nav {
+  margin: 0 1rem;
+  padding: 0;
+  font-size: 2rem;
+  color: white;
+}
+.icon-nav :hover {
+  color: #bd377a;
+}
 .navbar {
   width: 100%;
   position: fixed;
   z-index: 100;
 }
+.title-icon-nav i {
+  margin: 0;
+  width: 50%;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
 .link {
   display: flex;
   justify-content: center;

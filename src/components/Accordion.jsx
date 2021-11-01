@@ -22,13 +22,16 @@ export default function Accordion(props) {
               </button>
             </h2>
 
-            {isOpen
-              ? props.data.map((p, i) => {
-                  if (p.category === props.categories) {
-                    return <Cards key={i} list={p.product} />;
-                  }
-                })
-              : null}
+            <div className='container'>
+              {isOpen
+                ? // eslint-disable-next-line array-callback-return
+                  props.data.map((p, i) => {
+                    if (p.category === props.categories) {
+                      return <Cards key={i} list={p} />;
+                    }
+                  })
+                : null}
+            </div>
           </div>
         </div>
       </section>

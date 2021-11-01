@@ -9,7 +9,6 @@ import api from "../apis/api";
 export default function Home() {
   const [data, setData] = useState([]);
   const categories = unique(data.map((i) => i.category));
-  // const list = data.map((p) => p.product);
 
   useEffect(() => {
     (async () => {
