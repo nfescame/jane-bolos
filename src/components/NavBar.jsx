@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import Modal from "./Modal.jsx";
 import "../style/navbar.css";
 
 export default function NavBar() {
@@ -14,25 +13,37 @@ export default function NavBar() {
             <i className='fas fa-birthday-cake'></i>
           </Link>
 
-          <button
-            className='navbar-toggler'
-            type='button'
-            onClick={() => {
-              SetIsOpen(isOpen ? false : true);
-            }}
-          >
-            <span className='navbar-toggler-icon'></span>
-          </button>
+          <Link className='link' to='/cart' style={{ padding: ".5rem 1rem" }}>
+            <i className='fa fa-shopping-cart' aria-hidden='true'></i>
+            <span className='icon-cart-couter'>Cart 0</span>
+          </Link>
+
+          <div className='contaner-cart-link'>
+            <button
+              className='navbar-toggler'
+              type='button'
+              onClick={() => {
+                SetIsOpen(isOpen ? false : true);
+              }}
+            >
+              <span className='navbar-toggler-icon'></span>
+            </button>
+          </div>
+
           {isOpen ? (
             <div className=' navbar-collapse' id='navbarNavAltMarkup'>
               <div className='navbar-nav container-link'>
-                <Link className='link' to='#'>
+                <Link onClick={() => SetIsOpen(false)} className='link' to='#'>
                   Contatos
                 </Link>
-                <Link className='link' to='#'>
+                <Link onClick={() => SetIsOpen(false)} className='link' to='#'>
                   Album
                 </Link>
-                <Link className='link' to='/auth/login'>
+                <Link
+                  onClick={() => SetIsOpen(false)}
+                  className='link'
+                  to='/auth/login'
+                >
                   Login ADM
                 </Link>
               </div>
@@ -40,7 +51,6 @@ export default function NavBar() {
           ) : null}
         </div>
       </nav>
-      <Modal />
     </>
   );
 }

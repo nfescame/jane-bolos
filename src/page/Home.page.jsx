@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from "react";
-
-import Header from "./Header";
-import Categorie from "./Categories";
-import Accordion from "./Accordion";
-// import products from "../data/bc.json";
-import api from "../apis/api";
+import { AuthContextData } from "../providers/AuthData";
+import Header from "../components/Header";
+import Categorie from "../components/Categories";
+import Accordion from "../components/Accordion";
 
 export default function Home() {
+  const dataProvider = React.useContext(AuthContextData);
+
   const [data, setData] = useState([]);
   const categories = unique(data.map((i) => i.category));
 
   useEffect(() => {
     (async () => {
       try {
-        const result = await api.get("products");
-        setData(result.data.result);
+        setData(dataProvider.provider);
       } catch (err) {}
     })();
-
-    return () => {};
-  }, []);
+  }, [dataProvider]);
 
   function unique(arr) {
     return arr.filter((elem, pos, arr) => {
@@ -31,6 +28,7 @@ export default function Home() {
     <>
       <Header />
       <Categorie categorias={categories} />
+
       {categories.map((category, index) => {
         return <Accordion key={index} categories={category} data={data} />;
       })}

@@ -1,5 +1,7 @@
+/* eslint-disable array-callback-return */
 import React, { useState } from "react";
 import "../style/accordeon.css";
+import "../style/card.css";
 import Cards from "./Card";
 
 export default function Accordion(props) {
@@ -22,16 +24,19 @@ export default function Accordion(props) {
               </button>
             </h2>
 
-            <div className='container'>
-              {isOpen
-                ? // eslint-disable-next-line array-callback-return
-                  props.data.map((p, i) => {
-                    if (p.category === props.categories) {
-                      return <Cards key={i} list={p} />;
-                    }
-                  })
-                : null}
-            </div>
+            {isOpen ? (
+              <div className='main-card'>
+                <div className='body'>
+                  <div className='container-card'>
+                    {props.data.map((p, i) => {
+                      if (p.category === props.categories) {
+                        return <Cards key={i} list={p} />;
+                      }
+                    })}
+                  </div>
+                </div>
+              </div>
+            ) : null}
           </div>
         </div>
       </section>

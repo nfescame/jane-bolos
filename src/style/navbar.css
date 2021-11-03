@@ -2,13 +2,24 @@
   background-color: #eb92be;
   color: antiquewhite;
 }
-.icon-nav {
+
+.icon-nav .fa-shopping-cart {
   margin: 0 1rem;
   padding: 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
 }
-.icon-nav :hover {
+.icon-nav .fa-shopping-cart:hover {
+  color: #bd377a;
+}
+
+.icon-nav .fa-birthday-cake {
+  margin: 0 1rem;
+  padding: 0;
+  font-size: 1.5rem;
+  color: white;
+}
+.icon-nav .fa-birthday-cake:hover {
   color: #bd377a;
 }
 .navbar {

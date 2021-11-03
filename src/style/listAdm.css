@@ -1,0 +1,21 @@
+.sessao-list-adm {
+  margin: 4rem 0;
+  padding: 0;
+}
+
+.list-products {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.container-data-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-data-list p {
+  font-size: 1rem;
+}

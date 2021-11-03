@@ -28,9 +28,10 @@
   height: 3rem;
   background-color: #eb92be;
   color: antiquewhite;
-  margin-top: 1.5rem;
+
   border: none;
   cursor: pointer;
+  margin: 1.5rem 2rem;
   transition: background-color 1s;
 }
 .container-btn button:hover {

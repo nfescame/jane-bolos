@@ -1,0 +1,24 @@
+.container-details .content-details {
+  display: flex;
+  width: 100%;
+}
+.container-details .container-img-info {
+  position: relative;
+}
+.content-details .img-details {
+  border-radius: 10px;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+.content-details .img-details img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease-in-out;
+  transform-origin: right;
+}
