@@ -10,20 +10,23 @@ import Details from "../page/Details";
 import AuthRouter from "../routeComponents/auth/AuthRouter";
 import { AuthContextComponent } from "../contexts/authContext";
 import { AuthDataProviders } from "../providers/AuthData.jsx";
+import { AuthCartProviders } from "../providers/AuthCart.jsx";
 
 function Router() {
   return (
     <BrowserRouter>
       <AuthContextComponent>
         <AuthDataProviders>
-          <NavBar />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/auth' component={AuthRouter} />
-            <Route path='/store' component={Store} />
-            <Route path='/cart/:id' component={Cart} />
-            <Route path='/details' component={Details} />
-          </Switch>
+          <AuthCartProviders>
+            <NavBar />
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/auth' component={AuthRouter} />
+              <Route path='/store' component={Store} />
+              <Route path='/cart' component={Cart} />
+              <Route path='/details' component={Details} />
+            </Switch>
+          </AuthCartProviders>
         </AuthDataProviders>
       </AuthContextComponent>
     </BrowserRouter>

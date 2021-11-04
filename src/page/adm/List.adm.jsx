@@ -11,7 +11,6 @@ export default function ListAdm(props) {
     const id = await event;
     try {
       const result = await api.delete(`/products/delete/${id}`);
-
       console.log(result.data);
       // eslint-disable-next-line no-restricted-globals
       location.reload();

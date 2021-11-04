@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ContextCart } from "../providers/AuthCart";
 import "../style/card.css";
 
 export default function Cards(props) {
+  const { cart, setCart } = React.useContext(ContextCart);
   const { list } = props;
 
   return (
@@ -17,7 +19,16 @@ export default function Cards(props) {
             </Link>
           </li>
           <li>
-            <Link className='icon-link' to={`/cart/${list._id}`}>
+            <Link
+              onClick={() =>
+                setCart({
+                  value: cart.value + 1,
+                  products: [...cart.products, list],
+                })
+              }
+              className='icon-link'
+              to='#'
+            >
               <i className='fa fa-shopping-cart' aria-hidden='true'></i>
               <span>Add to Cart</span>
             </Link>

@@ -1,3 +1,17 @@
+.btn-back {
+  color: #bd377a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 1rem 0;
+}
+.btn-back .fa-chevron-left {
+  font-size: 1.5rem;
+}
+.btn-back h5 {
+  padding: 0 1rem;
+  margin: 0;
+}
 .container-details .content-details {
   display: flex;
   width: 100%;
@@ -7,10 +21,13 @@
 }
 .content-details .img-details {
   border-radius: 10px;
-  position: relative;
-  width: 200px;
-  height: 200px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 150px;
   overflow: hidden;
+  object-fit: cover;
 }
 .content-details .img-details img {
   position: absolute;
@@ -21,4 +38,10 @@
   object-fit: cover;
   transition: 0.5s ease-in-out;
   transform-origin: right;
+}
+.card-body {
+  border-radius: 10px;
+  width: 100%;
+  height: 150px;
+  background-color: antiquewhite;
 }
