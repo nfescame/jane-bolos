@@ -17,7 +17,7 @@ export default function NavBar() {
 
           <Link className='link' to='/cart' style={{ padding: ".5rem 1rem" }}>
             <i className='fa fa-shopping-cart' aria-hidden='true'></i>
-            <span className='icon-cart-couter'> {cart.value}</span>
+            <span className='icon-cart-couter'> {cart.products.length}</span>
           </Link>
 
           <div className='contaner-cart-link'>

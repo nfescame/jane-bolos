@@ -7,6 +7,16 @@ export default function Cards(props) {
   const { cart, setCart } = React.useContext(ContextCart);
   const { list } = props;
 
+  const addItens = () => {
+    // cria um item no carrinho incluindo duas propriedades no list(modelo de produto)
+    list["qtt"] = 1;
+    list["valueQtt"] = list.value;
+
+    setCart({
+      products: [...cart.products, list],
+    });
+  };
+
   return (
     <div className='card'>
       <div className='imgBx'>
@@ -19,16 +29,7 @@ export default function Cards(props) {
             </Link>
           </li>
           <li>
-            <Link
-              onClick={() =>
-                setCart({
-                  value: cart.value + 1,
-                  products: [...cart.products, list],
-                })
-              }
-              className='icon-link'
-              to='#'
-            >
+            <Link onClick={addItens} className='icon-link' to='#'>
               <i className='fa fa-shopping-cart' aria-hidden='true'></i>
               <span>Add to Cart</span>
             </Link>

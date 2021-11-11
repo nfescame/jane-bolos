@@ -4,8 +4,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Home from "../page/Home.page";
 import Store from "../page/adm/Store.page";
-import Cart from "../page/Cart";
-import Details from "../page/Details";
+import Cart from "../page/Cart.page";
+import Details from "../page/Details.page";
 
 import AuthRouter from "../routeComponents/auth/AuthRouter";
 import { AuthContextComponent } from "../contexts/authContext";
