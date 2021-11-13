@@ -15,6 +15,7 @@ export default function Store() {
     category: "",
     title: "",
     value: 0,
+    unity: "",
     description: "",
     pictureUrl: "",
   });
@@ -131,6 +132,24 @@ export default function Store() {
             value={dataState.value}
             onChange={handleChange}
           />
+
+          <div className='container-select col-md-4'>
+            <label htmlFor='validationCustom01' className='form-label'>
+              Unidade
+            </label>
+            <select
+              className='form-control'
+              type='text'
+              required
+              name='unity'
+              value={dataState.unity}
+              onChange={handleChange}
+            >
+              <option value='Kg'>kg</option>
+              <option value='cento'>cento</option>
+              <option value='unidade'>unidade</option>
+            </select>
+          </div>
 
           <div className='col-md-4'>
             <label htmlFor='validationCustom01' className='form-label'>

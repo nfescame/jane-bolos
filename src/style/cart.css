@@ -68,7 +68,7 @@
 }
 
 .cart-body .icon-read-detete .container-add-qtt {
-  width: 8rem;
+  width: 15rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -84,7 +84,7 @@
 }
 .cart-body .icon-read-detete .container-add-qtt span {
   color: black;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .container-valorTotal {
