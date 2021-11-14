@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { ContextCart } from "../providers/AuthCart";
 import api from "../apis/api";
-
+import Button from "../components/Button";
 import "../style/cart.css";
 
 export default function Cart() {
@@ -21,26 +21,6 @@ export default function Cart() {
   const { cart, setCart } = React.useContext(ContextCart);
   const history = useHistory();
 
-  async function handleSubmit(event) {
-    const productsRequest = [];
-    cart.products.map((product) => {
-      productsRequest.push({ id: product._id, qtt: product.qtt });
-    });
-
-    setRequest(
-      (request.products = productsRequest),
-      (request.clientName = currentClielt),
-      (request.totalValue = valueTotal)
-    );
-    console.log("pedido", request);
-    try {
-      const response = await api.post("/request", {
-        ...request,
-      });
-      console.log(response);
-    } catch (err) {}
-  }
-
   useEffect(() => {
     const total = cart.products.reduce(getTotal, 0);
 
@@ -48,13 +28,22 @@ export default function Cart() {
       return total + item.value * item.qtt;
     }
     setValueTotal(total);
-  });
+  }, [setValueTotal]);
 
   const deleteItemCart = (id) => {
     const result = cart.products.filter(function (el) {
       return el._id !== id;
     });
     setCart({ products: result });
+  };
+
+  const updateValueTotal = () => {
+    const total = cart.products.reduce(getTotal, 0);
+
+    function getTotal(total, item) {
+      return total + item.value * item.qtt;
+    }
+    setValueTotal(total);
   };
 
   const addQtt = (id, op) => {
@@ -69,7 +58,53 @@ export default function Cart() {
           cart.products[i].value * cart.products[i].qtt;
       }
     }
+    updateValueTotal();
   };
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const productsRequest = [];
+    if (setCurrentClient) {
+      // eslint-disable-next-line array-callback-return
+      cart.products.map((product) => {
+        productsRequest.push({ id: product._id, qtt: product.qtt });
+        return product;
+      });
+
+      setRequest(
+        (request.products = productsRequest),
+        (request.clientName = currentClielt),
+        (request.totalValue = valueTotal)
+      );
+      try {
+        const response = await api.post("/request", {
+          ...request,
+        });
+        gotowhatsapp(response);
+        console.log(response);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }
+  function gotowhatsapp(pedido) {
+    const name = currentClielt;
+    const valorDoPedido = valueTotal;
+    const idPedido = pedido.data._id;
+
+    const url =
+      "https://wa.me/5511991833956?text=" +
+      "Name: " +
+      name +
+      "%0a" +
+      "Valor: " +
+      valorDoPedido +
+      "%0a" +
+      "Id do pedido:" +
+      idPedido;
+
+    window.open(url, "_blank").focus();
+  }
 
   return (
     <>
@@ -127,24 +162,19 @@ export default function Cart() {
           <h2>Valor Total </h2>
           <h2>R${valueTotal.toFixed(2)} </h2>
         </div>
-        <form
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "100%",
-            height: "10rem",
-            justifyContent: "space-around",
-          }}
-        >
-          <label htmlFor='validationCustom01'>Digite seu nome</label>
-          <input
-            value={currentClielt}
-            type='text'
-            onChange={(e) => setCurrentClient(e.target.value)}
-            required
-          />
-          <button onClick={handleSubmit}>enviar</button>
-        </form>
+
+        <div className='container-form'>
+          <form className='col-md-4 button-submit'>
+            <label htmlFor='validationCustom01'>Digite seu nome</label>
+            <input
+              value={currentClielt}
+              type='text'
+              onChange={(e) => setCurrentClient(e.target.value)}
+              required
+            />
+            <Button text={"enviar"} handleSubmit={handleSubmit}></Button>
+          </form>
+        </div>
       </section>
     </>
   );
