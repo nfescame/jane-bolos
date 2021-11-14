@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import ButtonComponent from "../../components/Button";
 import "../../style/login.css";
 import api from "../../apis/api";
@@ -68,6 +69,9 @@ function Login(props) {
 
         <div className='container-btn'>
           <ButtonComponent text={"Login"} />
+        </div>
+        <div>
+          <Link to='/signup'>signup</Link>
         </div>
         <div className='container-texto'>
           <h5>Campo de login apenas para ADM</h5>
