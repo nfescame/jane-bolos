@@ -35,11 +35,13 @@ export default function ListAdm(props) {
             return (
               <li key={i} className='list-group-item list-products'>
                 <div className='container-data-list'>
-                  <p>Categoria: {p.category}</p>
-                  <p>Titulo: {p.title}</p>
-                  <p>Valor: R${p.value},00</p>
+                  <div>
+                    <p>Categoria: {p.category}</p>
+                    <p>Titulo: {p.title}</p>
+                    <p>Valor: R${p.value},00</p>
+                  </div>
 
-                  <div className='icon-read-detete col-md-12'>
+                  <div className='icon-read-detete'>
                     <div onClick={() => deleteItem(p._id)}>
                       <i className='fas fa-trash-alt'></i>
                     </div>
@@ -52,13 +54,12 @@ export default function ListAdm(props) {
                     >
                       <i className='fas fa-pen-alt'></i>
                     </div>
-
-                    <img
-                      src={p.pictureUrl}
-                      style={{ width: "6rem" }}
-                      alt='img-item'
-                    />
                   </div>
+                  <img
+                    src={p.pictureUrl}
+                    style={{ width: "6rem" }}
+                    alt='img-item'
+                  />
                 </div>
               </li>
             );

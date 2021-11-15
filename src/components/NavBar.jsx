@@ -35,12 +35,14 @@ export default function NavBar() {
           {isOpen ? (
             <div className=' navbar-collapse' id='navbarNavAltMarkup'>
               <div className='navbar-nav container-link'>
-                <Link onClick={() => SetIsOpen(false)} className='link' to='#'>
+                <Link
+                  onClick={() => SetIsOpen(false)}
+                  className='link'
+                  to='/contact'
+                >
                   Contatos
                 </Link>
-                <Link onClick={() => SetIsOpen(false)} className='link' to='#'>
-                  Album
-                </Link>
+
                 <Link
                   onClick={() => SetIsOpen(false)}
                   className='link'

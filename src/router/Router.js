@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import NavBar from "../components/NavBar";
+import Contact from "../page/Contact";
 import Home from "../page/Home.page";
 import Store from "../page/adm/Store.page";
 import Cart from "../page/Cart.page";
@@ -26,6 +27,7 @@ function Router() {
               <Route path='/store' component={Store} />
               <Route path='/cart' component={Cart} />
               <Route path='/details' component={Details} />
+              <Route path='/contact' component={Contact} />
             </Switch>
           </AuthCartProviders>
         </AuthDataProviders>

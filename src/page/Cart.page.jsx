@@ -115,7 +115,7 @@ export default function Cart() {
         </div>
         {cart.products.map((product, i) => {
           return (
-            <div key={i} className='card mb-3 '>
+            <div key={i} className='cart mb-3 '>
               <div className='row g-0 container-img-info'>
                 <div className='content-details'>
                   <div className='img-details'>
@@ -132,7 +132,7 @@ export default function Cart() {
                         R$ {product.valueQtt.toFixed(2)}
                       </small>
                     </p>
-                    <div className='icon-read-detete '>
+                    <div className='icon-read-detete-cart '>
                       <Link to='#' className='container-add-qtt'>
                         <button onClick={() => addQtt(product._id, "-")}>
                           <i className='fas fa-chevron-down'></i>
@@ -145,7 +145,7 @@ export default function Cart() {
                         </button>
                       </Link>
                       <div
-                        className='icon'
+                        className='icon-delete'
                         name={product._id}
                         onClick={() => deleteItemCart(product._id)}
                       >
