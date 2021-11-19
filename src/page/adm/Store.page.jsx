@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 import InputForm from "../../components/InputForm";
 import Spinner from "../../components/Spinner";
 import ListAdm from "./List.adm";
@@ -186,6 +186,9 @@ export default function Store() {
             >
               Editar
             </button>
+            <Link to='/request'>
+              <button type='submit'>Pedidos</button>
+            </Link>
           </div>
         </form>
       ) : (

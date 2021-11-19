@@ -9,9 +9,11 @@ import Cart from "../page/Cart.page";
 import Details from "../page/Details.page";
 import Signup from "../routeComponents/auth/Signup";
 import AuthRouter from "../routeComponents/auth/AuthRouter";
+import Requests from "../page/adm/requests";
 import { AuthContextComponent } from "../contexts/authContext";
 import { AuthDataProviders } from "../providers/AuthData.jsx";
 import { AuthCartProviders } from "../providers/AuthCart.jsx";
+import { AuthRequestProviders } from "../providers/AuthRequest";
 
 function Router() {
   return (
@@ -26,8 +28,11 @@ function Router() {
               <Route path='/signup' component={Signup} />
               <Route path='/store' component={Store} />
               <Route path='/cart' component={Cart} />
-              <Route path='/details' component={Details} />
               <Route path='/contact' component={Contact} />
+              <AuthRequestProviders>
+                <Route path='/details/:id' component={Details} />
+                <Route path='/request' component={Requests} />
+              </AuthRequestProviders>
             </Switch>
           </AuthCartProviders>
         </AuthDataProviders>

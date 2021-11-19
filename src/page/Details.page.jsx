@@ -1,9 +1,10 @@
 import React from "react";
 
-export default function Details() {
+export default function Details(props) {
+  console.log(props.match.params);
   return (
-    <>
-      <h1>details</h1>
-    </>
+    <div style={{ paddingTop: "3rem" }}>
+      <h1 style={{ color: "#000" }}>details</h1>
+    </div>
   );
 }
