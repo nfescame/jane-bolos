@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "../../components/Button";
+import "../../style/signup.css";
 import api from "../../apis/api";
 
 function Signup(props) {
@@ -32,10 +34,10 @@ function Signup(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Signup!</h1>
+    <form className='form' onSubmit={handleSubmit}>
+      <h1 className='title'>Signup!</h1>
 
-      <div>
+      <div className='container-input'>
         <label htmlFor='signupFormName'>Name</label>
         <input
           type='text'
@@ -47,7 +49,7 @@ function Signup(props) {
         />
       </div>
 
-      <div>
+      <div className='container-input'>
         <label htmlFor='signupFormEmail'>E-mail Address</label>
         <input
           type='email'
@@ -59,7 +61,7 @@ function Signup(props) {
         />
       </div>
 
-      <div>
+      <div className='container-input'>
         <label htmlFor='signupFormPassword'>Password</label>
         <input
           type='password'
@@ -71,8 +73,10 @@ function Signup(props) {
         />
       </div>
 
-      <div>
-        <button type='submit'>Signup!</button>
+      <div className='container-btn'>
+        <Button text={"signup"} type='submit'>
+          Signup!
+        </Button>
 
         <Link to='/auth/login'>
           Already have an account? Click here to login.

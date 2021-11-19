@@ -33,7 +33,7 @@ export default function Store() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-
+    console.log(dataState);
     if (id !== 0) {
       updateItem();
     } else {

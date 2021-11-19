@@ -41,7 +41,9 @@ function Login(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='form' onSubmit={handleSubmit}>
+      <h1 className='title'>Login!</h1>
+
       <section className='container-login'>
         <div className='container-email'>
           <label htmlFor='signupFormEmail'>E-mail Address</label>
