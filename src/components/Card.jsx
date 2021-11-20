@@ -36,10 +36,10 @@ export default function Cards(props) {
           </li>
 
           <li>
-            <Link className='icon-link' to='#'>
+            <div className='icon-link'>
               <i className='fa fa-eye' aria-hidden='true'></i>
               <span>View Details</span>
-            </Link>
+            </div>
           </li>
         </ul>
       </div>

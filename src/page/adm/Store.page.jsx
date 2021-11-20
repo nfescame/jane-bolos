@@ -96,7 +96,12 @@ export default function Store() {
       return setDataState({ ...dataState, [name]: file[0] });
     }
 
-    setDataState({ ...dataState, [name]: value });
+    if (name === "value") {
+      console.log(name);
+      setDataState({ ...dataState, [name]: parseInt(value) });
+    } else {
+      setDataState({ ...dataState, [name]: value });
+    }
   };
 
   return (
@@ -186,9 +191,6 @@ export default function Store() {
             >
               Editar
             </button>
-            <Link to='/request'>
-              <button type='submit'>Pedidos</button>
-            </Link>
           </div>
         </form>
       ) : (
@@ -198,7 +200,6 @@ export default function Store() {
             setId={setId}
             setIsOpen={setIsOpen}
             isOpen={isOpen}
-            // dataProvider={dataProvider}
           />
         </section>
       )}

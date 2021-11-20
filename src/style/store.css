@@ -1,11 +1,13 @@
 .container-store {
+  width: 100%;
+  height: 100vh;
+  background-color: antiquewhite;
   display: flex;
   justify-content: center;
 }
 
 .container-form {
   padding: 1rem;
-  background-color: antiquewhite;
   width: 100%;
   height: 100vh;
   display: flex;
