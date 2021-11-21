@@ -12,4 +12,15 @@
   width: 30%;
   display: flex;
   justify-content: center;
+  color: aliceblue;
+  font-weight: bold;
+  background: #fbd3e9;
+  background: -webkit-linear-gradient(to right, #bb377d, #db7cb1);
+  background: linear-gradient(to right, #bb377d, #db7cb1);
+}
+.containerButtonForm button:hover {
+  color: aliceblue;
+  background: #fbd3e9;
+  background: -webkit-linear-gradient(to left, #bb377d, #db7cb1);
+  background: linear-gradient(to left, #bb377d, #db7cb1);
 }

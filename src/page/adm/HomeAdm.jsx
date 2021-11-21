@@ -12,7 +12,7 @@ export default function HomeAdm() {
     <div className='containerButtonHomeAdm'>
       <div className='containerButtonForm'>
         <button
-          className=' btn btn-lg btn-primary'
+          className=' btn btn-lg '
           type='submit'
           onClick={() => rotas("/store")}
         >
@@ -20,7 +20,7 @@ export default function HomeAdm() {
         </button>
 
         <button
-          className=' btn btn-lg btn-primary'
+          className=' btn btn-lg '
           type='submit'
           onClick={() => rotas("/edit")}
         >
@@ -28,7 +28,7 @@ export default function HomeAdm() {
         </button>
 
         <button
-          className=' btn btn-lg btn-primary'
+          className=' btn btn-lg'
           type='submit'
           onClick={() => rotas("/request")}
         >
