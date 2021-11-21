@@ -32,7 +32,7 @@ function Login(props) {
         JSON.stringify({ ...response.data })
       );
       setErrors({ password: "", email: "" });
-      props.history.push("/store");
+      props.history.push("/homeadm");
     } catch (err) {
       console.error(err.response);
       setErrors({ ...err.response.data.errors });
@@ -47,6 +47,7 @@ function Login(props) {
         {/* input email */}
         <div className='form-floating'>
           <input
+            required='true'
             type='email'
             name='email'
             className='form-control'
@@ -61,6 +62,7 @@ function Login(props) {
         {/* input passord */}
         <div className='form-floating'>
           <input
+            required='true'
             type='password'
             name='password'
             className='form-control'

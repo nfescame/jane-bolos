@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { AuthContextRequest } from "../../providers/AuthRequest";
-
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import api from "../../apis/api";
 
 export default function Requests() {
   const dataProvider = React.useContext(AuthContextRequest);
-  console.log(dataProvider);
   const [request, setRequest] = useState([]);
   const history = useHistory();
+
   function goBack() {
     history.goBack();
   }

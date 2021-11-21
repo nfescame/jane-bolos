@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-import InputForm from "../../components/InputForm";
-import Spinner from "../../components/Spinner";
-import ListAdm from "./List.adm";
+
+import FormProducts from "../../components/FormProducts";
+// import InputForm from "../../components/InputForm";
+// import Spinner from "../../components/Spinner";
+
 import api from "../../apis/api";
+
 import "../../style/store.css";
+import "../../style/formProducts.css";
 
 export default function Store() {
   const [isOpen, setIsOpen] = useState(true);
-
   const [loading, setLoading] = useState(false);
   const [id, setId] = useState(0);
   const [dataState, setDataState] = useState({
@@ -19,6 +23,11 @@ export default function Store() {
     description: "",
     pictureUrl: "",
   });
+  const history = useHistory();
+
+  function goBack() {
+    history.goBack();
+  }
 
   // upload de imagem da cloudnary
   async function handleUpload(file) {
@@ -105,104 +114,112 @@ export default function Store() {
   };
 
   return (
-    <div className=' container-store'>
-      {isOpen ? (
-        <form
-          onSubmit={handleSubmit}
-          className='row g-0 needs-validation container-form'
-          style={{ paddingTop: "5rem" }}
-        >
-          {loading ? <Spinner /> : null}
+    <main class='formProduct'>
+      <div className='container-btn'>
+        <button onClick={goBack}>Voltar</button>
+      </div>
 
-          <InputForm
-            type='text'
-            label={"Categoria"}
-            name='category'
-            value={dataState.category}
-            onChange={handleChange}
-          />
+      <FormProducts />
+    </main>
 
-          <InputForm
-            type='text'
-            label={"Titulo do produto"}
-            name='title'
-            value={dataState.title}
-            onChange={handleChange}
-          />
+    // <div className=' container-store'>
+    //   {isOpen ? (
+    //     <form
+    //       onSubmit={handleSubmit}
+    //       className='row g-0 needs-validation container-form'
+    //       style={{ paddingTop: "5rem" }}
+    //     >
+    //       {loading ? <Spinner /> : null}
 
-          <InputForm
-            type='number'
-            label={"Valor"}
-            name='value'
-            value={dataState.value}
-            onChange={handleChange}
-          />
+    //       <InputForm
+    //         type='text'
+    //         label={"Categoria"}
+    //         name='category'
+    //         value={dataState.category}
+    //         onChange={handleChange}
+    //       />
 
-          <div className='container-select col-md-4'>
-            <label htmlFor='validationCustom01' className='form-label'>
-              Unidade
-            </label>
-            <select
-              className='form-control'
-              type='text'
-              required
-              name='unity'
-              value={dataState.unity}
-              onChange={handleChange}
-            >
-              <option value='Kg'>kg</option>
-              <option value='cento'>cento</option>
-              <option value='unidade'>unidade</option>
-            </select>
-          </div>
+    //       <InputForm
+    //         type='text'
+    //         label={"Titulo do produto"}
+    //         name='title'
+    //         value={dataState.title}
+    //         onChange={handleChange}
+    //       />
 
-          <div className='col-md-4'>
-            <label htmlFor='validationCustom01' className='form-label'>
-              Descrição do produto
-            </label>
-            <textarea
-              value={dataState.description}
-              onChange={handleChange}
-              name='description'
-              type='text'
-              className='form-control'
-              required
-            />
-          </div>
+    //       <InputForm
+    //         type='number'
+    //         label={"Valor"}
+    //         name='value'
+    //         value={dataState.value}
+    //         onChange={handleChange}
+    //       />
 
-          <div className='col-md-4'>
-            <label htmlFor='validationCustom01' className='form-label'>
-              Imagem
-            </label>
-            <input
-              name='pictureUrl'
-              onChange={handleChange}
-              type='file'
-              className='form-control'
-              required
-            />
-          </div>
+    //       <div className='container-select col-md-4'>
+    //         <label htmlFor='validationCustom01' className='form-label'>
+    //           Unidade
+    //         </label>
+    //         <select
+    //           className='form-control'
+    //           type='text'
+    //           required
+    //           name='unity'
+    //           value={dataState.unity}
+    //           onChange={handleChange}
+    //         >
+    //           <option value='Kg'>kg</option>
+    //           <option value='cento'>cento</option>
+    //           <option value='unidade'>unidade</option>
+    //         </select>
+    //       </div>
 
-          <div className='container-btn'>
-            <button type='submit'>salvar</button>
-            <button
-              type='button'
-              onClick={() => setIsOpen(isOpen ? false : true)}
-            >
-              Editar
-            </button>
-          </div>
-        </form>
-      ) : (
-        <section className='sessao-list'>
-          <ListAdm
-            id={id}
-            setId={setId}
-            setIsOpen={setIsOpen}
-            isOpen={isOpen}
-          />
-        </section>
-      )}
-    </div>
+    //       <div className='col-md-4'>
+    //         <label htmlFor='validationCustom01' className='form-label'>
+    //           Descrição do produto
+    //         </label>
+    //         <textarea
+    //           value={dataState.description}
+    //           onChange={handleChange}
+    //           name='description'
+    //           type='text'
+    //           className='form-control'
+    //           required
+    //         />
+    //       </div>
+
+    //       <div className='col-md-4'>
+    //         <label htmlFor='validationCustom01' className='form-label'>
+    //           Imagem
+    //         </label>
+    //         <input
+    //           name='pictureUrl'
+    //           onChange={handleChange}
+    //           type='file'
+    //           className='form-control'
+    //           required
+    //         />
+    //       </div>
+
+    //       <div className='container-btn'>
+    //         <button type='submit'>salvar</button>
+    //         <button
+    //           type='button'
+    //           onClick={() => setIsOpen(isOpen ? false : true)}
+    //         >
+    //           Editar
+    //         </button>
+    //       </div>
+    //     </form>
+    //   ) : (
+    //     <section className='sessao-list'>
+    //       <ListAdm
+    //         id={id}
+    //         setId={setId}
+    //         setIsOpen={setIsOpen}
+    //         isOpen={isOpen}
+    //       />
+    //     </section>
+    //   )}
+    // </div>
   );
 }

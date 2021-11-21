@@ -1,0 +1,15 @@
+.containerButtonHomeAdm {
+  width: 100%;
+  max-width: 330px;
+  padding: 20% 15px;
+  margin: auto;
+}
+.containerButtonForm {
+  display: flex;
+  justify-content: space-between;
+}
+.containerButtonForm button {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}

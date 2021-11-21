@@ -1,0 +1,25 @@
+.formProduct {
+  width: 100%;
+  max-width: 330px;
+  padding: 20% 15px;
+  margin: auto;
+}
+
+form .containerTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  width: 100%;
+  margin: 1rem 0;
+}
+form .containerTitle .fa-cash-register {
+  font-size: 2rem;
+  color: #bd377a;
+}
+
+form .containerTitle h1 {
+  color: black;
+  margin: 0;
+  font-size: 1.5rem;
+}

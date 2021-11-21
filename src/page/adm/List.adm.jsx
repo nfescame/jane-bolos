@@ -1,11 +1,19 @@
 import React from "react";
+import { useHistory } from "react-router";
+
 import "../../style/listAdm.css";
+
 import api from "../../apis/api";
 import { AuthContextData } from "../../providers/AuthData";
 
 export default function ListAdm(props) {
   const dataProvider = React.useContext(AuthContextData);
   const { provider } = dataProvider;
+  const history = useHistory();
+
+  function goBack() {
+    history.goBack();
+  }
 
   async function deleteItem(event) {
     const id = await event;
@@ -23,13 +31,9 @@ export default function ListAdm(props) {
     <>
       <section className='sessao-list-adm '>
         <div className='container-btn'>
-          <button
-            onClick={() => props.setIsOpen(props.isOpen ? false : true)}
-            type='button'
-          >
-            voltar
-          </button>
+          <button onClick={goBack}>Voltar</button>
         </div>
+
         <ol className='list-group list-group-flush '>
           {provider.map((p, i) => {
             return (

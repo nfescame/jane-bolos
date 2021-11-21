@@ -1,0 +1,10 @@
+.container-btn {
+  width: 100%;
+}
+.container-btn button {
+  color: white;
+  background-color: blueviolet;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+}
