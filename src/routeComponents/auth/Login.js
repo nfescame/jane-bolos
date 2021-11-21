@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import ButtonComponent from "../../components/Button";
 import "../../style/login.css";
 import api from "../../apis/api";
 
@@ -41,45 +40,55 @@ function Login(props) {
   }
 
   return (
-    <form className='form' onSubmit={handleSubmit}>
-      <h1 className='title'>Login!</h1>
+    <main className='form-signin'>
+      <form onSubmit={handleSubmit}>
+        <h1 className='h3 mb-3 fw-normal'>Please login</h1>
 
-      <section className='container-login'>
-        <div className='container-email'>
-          <label htmlFor='signupFormEmail'>E-mail Address</label>
+        {/* input email */}
+        <div className='form-floating'>
           <input
             type='email'
             name='email'
-            id='signupFormEmail'
+            className='form-control'
+            id='floatingInput'
+            placeholder='name@example.com'
             value={state.email}
-            error={errors.email}
             onChange={handleChange}
           />
+          <label htmlFor='floatingInput'>Email address</label>
         </div>
 
-        <div className='container-password '>
-          <label htmlFor='signupFormPassword'>Password</label>
+        {/* input passord */}
+        <div className='form-floating'>
           <input
             type='password'
             name='password'
-            id='signupFormPassword'
+            className='form-control'
+            id='floatingPassword'
+            placeholder='Password'
             value={state.password}
-            error={errors.password}
             onChange={handleChange}
           />
+          <label htmlFor='floatingPassword'>Password</label>
         </div>
 
-        <div className='container-btn'>
-          <ButtonComponent text={"Login"} />
+        <div className='checkbox mb-3'>
+          <label>
+            <input type='checkbox' value='remember-me' /> Remember me
+          </label>
         </div>
-        <div>
-          <Link to='/signup'>signup</Link>
+        <button className='w-100 btn btn-lg btn-primary' type='submit'>
+          Login
+        </button>
+
+        <div className='containerSignup'>
+          <Link className='signupLink' to='/signup'>
+            Signup page.
+          </Link>
         </div>
-        <div className='container-texto'>
-          <h5>Campo de login apenas para ADM</h5>
-        </div>
-      </section>
-    </form>
+        <p className='mt-5 mb-3 text-muted'>&copy; 2017–2021</p>
+      </form>
+    </main>
   );
 }
 

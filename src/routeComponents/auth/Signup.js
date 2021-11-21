@@ -1,16 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Button from "../../components/Button";
+
 import "../../style/signup.css";
 import api from "../../apis/api";
 
 function Signup(props) {
   const [state, setState] = useState({ name: "", password: "", email: "" });
-  const [errors, setErrors] = useState({
-    name: null,
-    email: null,
-    password: null,
-  });
+  const [errors, setErrors] = useState("");
 
   function handleChange(event) {
     setState({
@@ -25,64 +20,74 @@ function Signup(props) {
     try {
       const response = await api.post("/signup", state);
       console.log(response);
-      setErrors({ name: "", password: "", email: "" });
+
       props.history.push("/auth/login");
     } catch (err) {
       console.error(err.response);
-      setErrors({ ...err.response.data.errors });
+      setErrors(err.response.data.msg);
     }
   }
 
   return (
-    <form className='form' onSubmit={handleSubmit}>
-      <h1 className='title'>Signup!</h1>
+    <main className='form-signin'>
+      <form onSubmit={handleSubmit}>
+        <h1 className='h3 mb-3 fw-normal'>Please sign in</h1>
 
-      <div className='container-input'>
-        <label htmlFor='signupFormName'>Name</label>
-        <input
-          type='text'
-          name='name'
-          id='signupFormName'
-          value={state.name}
-          error={errors.name}
-          onChange={handleChange}
-        />
-      </div>
+        {/* input name */}
+        <div className='form-floating'>
+          <input
+            required='true'
+            type='text'
+            name='name'
+            className='form-control'
+            id='floatingInput'
+            placeholder='name'
+            value={state.name}
+            onChange={handleChange}
+          />
+          <label htmlFor='floatingInput'>Name</label>
+        </div>
+        {/* input email */}
+        <div className='form-floating'>
+          <input
+            required='true'
+            type='email'
+            name='email'
+            className='form-control'
+            id='floatingInput'
+            placeholder='name@example.com'
+            value={state.email}
+            onChange={handleChange}
+          />
+          <label htmlFor='floatingInput'>Email address</label>
+        </div>
+        {/* input password */}
+        <div className='form-floating'>
+          <input
+            required='true'
+            type='password'
+            name='password'
+            className='form-control'
+            id='floatingPassword'
+            placeholder='Password'
+            value={state.password}
+            onChange={handleChange}
+          />
+          <label htmlFor='floatingPassword'>Password</label>
+        </div>
 
-      <div className='container-input'>
-        <label htmlFor='signupFormEmail'>E-mail Address</label>
-        <input
-          type='email'
-          name='email'
-          id='signupFormEmail'
-          value={state.email}
-          error={errors.email}
-          onChange={handleChange}
-        />
-      </div>
-
-      <div className='container-input'>
-        <label htmlFor='signupFormPassword'>Password</label>
-        <input
-          type='password'
-          name='password'
-          id='signupFormPassword'
-          value={state.password}
-          error={errors.password}
-          onChange={handleChange}
-        />
-      </div>
-
-      <div className='container-btn'>
-        <Button text={"signup"} type='submit'>
-          Signup!
-        </Button>
-
-        <Link to='/auth/login'>
-          Already have an account? Click here to login.
-        </Link>
-      </div>
-    </form>
+        <div className='checkbox mb-3'>
+          <label>
+            <input type='checkbox' value='remember-me' /> Remember me
+          </label>
+        </div>
+        <button className='w-100 btn btn-lg btn-primary' type='submit'>
+          Sign up
+        </button>
+        <p className='mt-5 mb-3 text-muted'>&copy; 2021</p>
+        {errors !== "" ? <p style={{ color: "red" }}>{errors}</p> : null}
+      </form>
+    </main>
   );
 }
 
