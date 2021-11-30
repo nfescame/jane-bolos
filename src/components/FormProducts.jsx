@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Spinner from "../components/Spinner";
 import api from "../apis/api";
 
 import "../style/formProducts.css";
+import { useParams } from "react-router-dom";
 
 export default function FormProducts(props) {
+  const parans = useParams();
+
   const [loading, setLoading] = useState(false);
-  const [id, setId] = useState(0);
+  const [id, seId] = useState("");
+
   const [dataState, setDataState] = useState({
     category: "",
     title: "",
@@ -16,6 +20,22 @@ export default function FormProducts(props) {
     description: "",
     pictureUrl: "",
   });
+
+  useEffect(() => {
+    seId(parans);
+    if (id !== 0) {
+      async function getProductsId() {
+        try {
+          const result = await api.get(`/products/filter/${Object.values(id)}`);
+          console.log(result);
+          setDataState(result.data);
+        } catch (err) {
+          console.error(err);
+        }
+      }
+      getProductsId();
+    }
+  }, [id]);
 
   // upload de imagem da cloudnary
   async function handleUpload(file) {
@@ -54,7 +74,6 @@ export default function FormProducts(props) {
   }
 
   const handleChange = (e) => {
-    console.log(dataState);
     const name = e.target.name;
     const value = e.target.value;
     const file = e.target.files;
@@ -72,6 +91,7 @@ export default function FormProducts(props) {
   };
 
   async function updateItem() {
+    console.log(id);
     try {
       const pictureUrl = await handleUpload(dataState.pictureUrl);
 
@@ -148,9 +168,9 @@ export default function FormProducts(props) {
             onChange={handleChange}
           >
             <option selected>Select unit of measure</option>
-            <option value='Kg'>Kg</option>
-            <option value='Cento'>Cento</option>
-            <option value='Unidade'>Unidade</option>
+            <option defaultValue='Kg'>Kg</option>
+            <option defaultValue='Cento'>Cento</option>
+            <option defaultValue='Unidade'>Unidade</option>
           </select>
           <label htmlFor='floatingSelect'>Select unit of measure</label>
         </div>

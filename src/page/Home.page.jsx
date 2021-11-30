@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AuthContextData } from "../providers/AuthData";
 import Header from "../components/Header";
-import Categorie from "../components/Categories";
+
 import Accordion from "../components/Accordion";
 
 export default function Home() {
@@ -27,7 +27,6 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Categorie categorias={categories} />
 
       {categories.map((category, index) => {
         return <Accordion key={index} categories={category} data={data} />;

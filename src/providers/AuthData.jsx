@@ -11,10 +11,10 @@ export const AuthDataProviders = (props) => {
       try {
         const result = await api.get("products");
         setProviders(result.data);
-      } catch (err) {}
+      } catch (err) {
+        console.log(err);
+      }
     })();
-
-    return () => {};
   }, []);
 
   return (

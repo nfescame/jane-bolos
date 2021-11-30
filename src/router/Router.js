@@ -30,7 +30,7 @@ function Router() {
               <Route exact path='/' component={Home} />
               <Route path='/auth' component={AuthRouter} />
               <Route path='/signup' component={Signup} />
-              <Route path='/store' component={Store} />
+              <Route path='/store/:id' component={Store} />
               <Route path='/cart' component={Cart} />
               <Route path='/contact' component={Contact} />
               <AuthRequestProviders>

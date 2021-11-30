@@ -14,10 +14,10 @@ export default function Store() {
   }
 
   return (
-    <main class='formProduct'>
+    <main className='formProduct'>
       <div className='container-btn'>
         <button onClick={goBack}>
-          Voltar <i class='fas fa-hand-point-left'></i>
+          Voltar <i className='fas fa-hand-point-left'></i>
         </button>
       </div>
       <FormProducts />

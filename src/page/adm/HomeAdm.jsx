@@ -14,7 +14,7 @@ export default function HomeAdm() {
         <button
           className=' btn btn-lg '
           type='submit'
-          onClick={() => rotas("/store")}
+          onClick={() => rotas("/store/0")}
         >
           Register
         </button>

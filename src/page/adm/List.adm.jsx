@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router";
+import { useHistory, Link } from "react-router-dom";
 
 import "../../style/listAdm.css";
 
@@ -50,14 +50,9 @@ export default function ListAdm(props) {
                       <i className='fas fa-trash-alt'></i>
                     </div>
 
-                    <div
-                      onClick={() => {
-                        props.setId(p._id);
-                        props.setIsOpen(props.isOpen ? false : true);
-                      }}
-                    >
+                    <Link to={`/store/${p._id}`}>
                       <i className='fas fa-pen-alt'></i>
-                    </div>
+                    </Link>
                   </div>
                   <img
                     src={p.pictureUrl}
